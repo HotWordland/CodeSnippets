@@ -13,8 +13,7 @@
      if (resData) {
          DLog(@"%@",resData);
          @try {
-             NSArray *result = [resData objectForKey:@"data"];
-             if (result.count==0) {
+             if ([[resData objectForKey:@"data"] isKindOfClass:[NSNull class]]) {
                  [self showAlert:@"没有更多信息" style:JFMinimalNotificationStyleError leftView:nil rightVie:nil];
                  return ;
              }
