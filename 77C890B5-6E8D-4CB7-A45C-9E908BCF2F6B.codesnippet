@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>DifferentDeviceToDo</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string> switch ([DeviceJudge currentResolution]) {
+        case iPhone6HiRes:
+        {
+//iphone6屏幕
+        }
+            break;
+            case iPhone6PlusHiRes:
+        {
+            //iphone6Plus屏幕
+ 
+        }
+            break;
+            
+        default:
+        {
+            //iphone4/5屏幕
+ 
+        }
+            break;
+    }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>77C890B5-6E8D-4CB7-A45C-9E908BCF2F6B</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>DifferentDeviceToDo</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>DifferentDeviceToDo</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
