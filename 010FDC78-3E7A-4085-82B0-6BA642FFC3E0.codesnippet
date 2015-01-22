@@ -10,35 +10,37 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string> [NetEngine createHttpAction:getbiaozhun_List() withParams:@{@"name":self.txtName_ch.text} onCompletion:^(id resData, BOOL isCache) {
-        if (resData) {
-            DLog(@"%@",resData);
-            @try {
-                NSArray *result = [resData objectForKey:@"data"];
-                if (result.count==0) {
-                    [self showAlert:@"没有更多信息" style:JFMinimalNotificationStyleError leftView:nil rightVie:nil];
-                    return ;
-                }
-                NSMutableArray *temp = [[NSMutableArray alloc]init];
-                dbSearchResultModel *model = [[dbSearchResultModel alloc]init];
-                for (NSDictionary *dic in [resData objectForKey:@"data"]) {
-                    [model setDbSearchR_name:[dic objectForKey:@"me_source"]];
-                    [model setDbSearchR_id:[[dic objectForKey:@"me_uid"] intValue]];
-                    [model setDbSearchR_content:[dic objectForKey:@"me_name"]];
-                    [temp addObject:model];
-                }
-                  SearchResultVCTableViewController *theVC = [[SearchResultVCTableViewController alloc]init];
-                [theVC setData:temp];
-                            [self.navigationController pushViewController:theVC animated:YES];
-
-            }
-            @catch (NSException *exception) {
-                 [self showAlert:@"出错了" style:JFMinimalNotificationStyleError leftView:nil rightVie:nil];
-            }
-
-        }
-    } onError:^(NSError *error) {
-        
-    } useCache:NO withMask:@"正在查询"];</string>
+     if (resData) {
+         DLog(@"%@",resData);
+         @try {
+             NSArray *result = [resData objectForKey:@"data"];
+             if (result.count==0) {
+                 [self showAlert:@"没有更多信息" style:JFMinimalNotificationStyleError leftView:nil rightVie:nil];
+                 return ;
+             }
+             NSMutableArray *temp = [[NSMutableArray alloc]init];
+             dbSearchResultModel *model = [[dbSearchResultModel alloc]init];
+             for (NSDictionary *dic in [resData objectForKey:@"data"]) {
+                 [model setDbSearchR_name:[dic objectForKey:@"me_source"]];
+                 [model setDbSearchR_id:[[dic objectForKey:@"me_uid"] intValue]];
+                 [model setDbSearchR_content:[dic objectForKey:@"me_name"]];
+                 [temp addObject:model];
+             }
+             SearchResultVCTableViewController *theVC = [[SearchResultVCTableViewController alloc]init];
+             [theVC setData:temp];
+             [self.navigationController pushViewController:theVC animated:YES];
+             
+         }
+         @catch (NSException *exception) {
+             [self showAlert:@"出错了" style:JFMinimalNotificationStyleError leftView:nil rightVie:nil];
+         }
+         
+     }
+ } onError:^(NSError *error) {
+     [self showAlert:@"网络超时" style:JFMinimalNotificationStyleError leftView:nil rightVie:nil];
+     
+ } useCache:NO withMask:@"正在查询"];
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>010FDC78-3E7A-4085-82B0-6BA642FFC3E0</string>
 	<key>IDECodeSnippetLanguage</key>
