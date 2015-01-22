@@ -19,8 +19,8 @@
                  return ;
              }
              NSMutableArray *temp = [[NSMutableArray alloc]init];
-             dbSearchResultModel *model = [[dbSearchResultModel alloc]init];
              for (NSDictionary *dic in [resData objectForKey:@"data"]) {
+                 dbSearchResultModel *model = [[dbSearchResultModel alloc]init];
                  [model setDbSearchR_name:[dic objectForKey:@"me_source"]];
                  [model setDbSearchR_id:[[dic objectForKey:@"me_uid"] intValue]];
                  [model setDbSearchR_content:[dic objectForKey:@"me_name"]];
@@ -52,6 +52,6 @@
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>0</integer>
+	<integer>2</integer>
 </dict>
 </plist>
