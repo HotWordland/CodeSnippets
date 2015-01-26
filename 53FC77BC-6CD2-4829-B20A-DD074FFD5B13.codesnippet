@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>NavigationControllerr滑动返回</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//在viewDidLoad加上这句
+self.navigationController.interactivePopGestureRecognizer.delegate = self;
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+ {
+     if (self.navigationController.viewControllers.count == &lt;#index#&gt;)//关闭主界面的右滑返回
+  {
+return NO;
+ }
+else
+ {
+return YES;
+ }
+ }
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>53FC77BC-6CD2-4829-B20A-DD074FFD5B13</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>NavigationBar隐藏的情况下</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>NavigationControllerr滑动返回</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
