@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>int page;
+RefreshState refreshState;
+
+///配置刷新控件
+-(void)confirRefresh
+{
+    page = 1;
+    __unsafe_unretained &lt;#vcName#&gt; *vc = self;
+    
+    self.header.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        // 进入刷新状态就会回调这个Block
+        // 模拟延迟加载数据，因此2秒后才调用）
+        // 这里的refreshView其实就是header
+        //        [vc performSelector:@selector(doneWithView:) withObject:refreshView afterDelay:2.0];
+        
+        NSLog(@"%@----开始进入刷新状态", refreshView.class);
+        vc-&gt;refreshState = RefreshStatePull;
+        vc-&gt;page = 1;
+//        [vc requestNewsPage:numToString(vc-&gt;page)];
+        
+    };
+    self.header.endStateChangeBlock = ^(MJRefreshBaseView *refreshView) {
+        // 刷新完毕就会回调这个Block
+        NSLog(@"%@----刷新完毕", refreshView.class);
+    };
+    self.header.refreshStateChangeBlock = ^(MJRefreshBaseView *refreshView, MJRefreshState state) {
+        // 控件的刷新状态切换了就会调用这个block
+        switch (state) {
+            case MJRefreshStateNormal:
+                NSLog(@"%@----切换到：普通状态", refreshView.class);
+                break;
+                
+            case MJRefreshStatePulling:
+                NSLog(@"%@----切换到：松开即可刷新的状态", refreshView.class);
+                break;
+                
+            case MJRefreshStateRefreshing:
+                NSLog(@"%@----切换到：正在刷新状态", refreshView.class);
+                break;
+            default:
+                break;
+        }
+    };
+    self.footer.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
+        // 模拟延迟加载数据，因此2秒后才调用）
+        // 这里的refreshView其实就是footer
+        //        [vc performSelector:@selector(doneWithView:) withObject:refreshView afterDelay:2.0];
+        ++vc-&gt;page;
+        vc-&gt;refreshState = RefreshStateUp;
+//        [vc requestNewsPage:numToString(vc-&gt;page)];
+        NSLog(@"%@----开始进入刷新状态", refreshView.class);
+    };
+    
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>C6E1A061-5087-44F6-B49B-D01DA5B7F803</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>配置刷新控件</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>配置刷新控件</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

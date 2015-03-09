@@ -3,38 +3,36 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>backNavi</string>
+	<string>grd</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//在viewDidLoad加上这句
-self.navigationController.interactivePopGestureRecognizer.delegate = self;
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
- {
-     if (self.navigationController.viewControllers.count == &lt;#index#&gt;)//关闭主界面的右滑返回
-  {
-return NO;
- }
-else
- {
-return YES;
- }
- }
+	<string>-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    // 判断是不是UIButton的类
+    if (touch.view==self.view)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>53FC77BC-6CD2-4829-B20A-DD074FFD5B13</string>
+	<string>BD033A01-4BB5-44ED-91EA-4D4BBC2A761C</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>NavigationBar隐藏的情况下</string>
+	<string>手势接收代理</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavigationControllerr滑动返回</string>
+	<string>gestureRecognizerDelegate</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>

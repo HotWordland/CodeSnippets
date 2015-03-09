@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>getcell</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (&lt;#cellName#&gt; *)getCellFromIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString *CellIdentifier = &lt;#stringCellName#&gt;;
+    //注意在heightForRowAtIndexPath:indexPath无法使用dequeueReusableCellWithIdentifier:forIndexPath:
+    &lt;#cellName#&gt; *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == Nil){
+        cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] lastObject];
+    }
+    cell.title = [[data objectAtIndex:indexPath.row] allKeys][0];
+    cell.content = [[data objectAtIndex:indexPath.row] allValues][0];
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    return cell;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>76FB8A5A-D2C2-4798-A492-0F0E830B008D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>从nib中选择cell</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>selectCellByNib</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (&lt;#cell#&gt; *)getCellFromIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString *CellIdentifier = &lt;#cellName#&gt;;
+    //注意在heightForRowAtIndexPath:indexPath无法使用dequeueReusableCellWithIdentifier:forIndexPath:
+    &lt;#cell#&gt; *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == Nil){
+        cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] lastObject];
+    }
+    cell.title = [[data objectAtIndex:indexPath.row] allKeys][0];
+    cell.content = [[data objectAtIndex:indexPath.row] allValues][0];
+    [cell setBackgroundColor:[UIColor clearColor]];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    &lt;#cell#&gt; *cell = [self getCellFromIndexPath:indexPath];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height+1.0f;
+}
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>A24E1F89-45FA-488C-9723-BDE869ACAF5C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>动态计算cell内容高度</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>动态计算cell内容高度</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

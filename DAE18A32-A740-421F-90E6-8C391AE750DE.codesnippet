@@ -3,35 +3,27 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>backNavi</string>
+	<string>tableHeightDelegate</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//在viewDidLoad加上这句
-self.navigationController.interactivePopGestureRecognizer.delegate = self;
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
- {
-     if (self.navigationController.viewControllers.count == &lt;#index#&gt;)//关闭主界面的右滑返回
-  {
-return NO;
- }
-else
- {
-return YES;
- }
- }
+	<string>- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    &lt;#cellName#&gt; *cell = [self getCellFromIndexPath:indexPath];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height+1.0f;
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>53FC77BC-6CD2-4829-B20A-DD074FFD5B13</string>
+	<string>DAE18A32-A740-421F-90E6-8C391AE750DE</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>NavigationBar隐藏的情况下</string>
+	<string>返回cell高度代理-autoLayout计算</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavigationControllerr滑动返回</string>
+	<string>tableHeight</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

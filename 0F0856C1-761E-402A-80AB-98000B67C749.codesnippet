@@ -3,38 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>backNavi</string>
+	<string>coss</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeExpression</string>
+		<string>CodeBlock</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//在viewDidLoad加上这句
-self.navigationController.interactivePopGestureRecognizer.delegate = self;
-
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
- {
-     if (self.navigationController.viewControllers.count == &lt;#index#&gt;)//关闭主界面的右滑返回
-  {
-return NO;
- }
-else
- {
-return YES;
- }
- }
+	<string> if (IS_IPHONE6) {
+     &lt;#logiPhone6#&gt;
+ }else if (IS_IPHONE6PLUS)
+        {
+            &lt;#logiPhonePlus#&gt;
+        }else{
+            &lt;#5/4s#&gt;        
+        }
 </string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>53FC77BC-6CD2-4829-B20A-DD074FFD5B13</string>
+	<string>0F0856C1-761E-402A-80AB-98000B67C749</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>NavigationBar隐藏的情况下</string>
+	<string>各种屏幕尺寸逻辑</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>NavigationControllerr滑动返回</string>
+	<string>ConditionOfSceenSize</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
-	<integer>2</integer>
+	<integer>0</integer>
 </dict>
 </plist>
